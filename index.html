@@ -15,26 +15,7 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background-color: #0d1117;
       color: #c9d1d9;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       min-height: 100vh;
-      text-align: center;
-      padding: 2rem;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      color: #f0f6fc;
-      margin-bottom: 1rem;
-    }
-
-    p {
-      font-size: 1.1rem;
-      color: #8b949e;
-      max-width: 500px;
-      line-height: 1.6;
     }
 
     a {
@@ -46,22 +27,256 @@
       text-decoration: underline;
     }
 
-    .badge {
+    /* Hero */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 5rem 2rem 3rem;
+      border-bottom: 1px solid #21262d;
+    }
+
+    .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      border: 3px solid #30363d;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      color: #f0f6fc;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero .username {
+      font-size: 1rem;
+      color: #8b949e;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #8b949e;
+      max-width: 480px;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
       display: inline-block;
-      margin-top: 2rem;
-      padding: 0.5rem 1.2rem;
+      padding: 0.5rem 1.25rem;
       border: 1px solid #30363d;
       border-radius: 6px;
       font-size: 0.9rem;
+      color: #c9d1d9;
+      background-color: #21262d;
+      transition: background-color 0.2s;
+    }
+
+    .btn:hover {
+      background-color: #30363d;
+      text-decoration: none;
+    }
+
+    /* Sections */
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .section h2 {
+      font-size: 1.25rem;
+      color: #f0f6fc;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #21262d;
+    }
+
+    /* Stats */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+    }
+
+    .stat-card {
+      background-color: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      text-align: center;
+    }
+
+    .stat-card .number {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: #f0f6fc;
+    }
+
+    .stat-card .label {
+      font-size: 0.85rem;
       color: #8b949e;
+      margin-top: 0.25rem;
+    }
+
+    /* Projects */
+    .project-card {
+      background-color: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .project-card p {
+      font-size: 0.875rem;
+      color: #8b949e;
+      line-height: 1.5;
+    }
+
+    .project-tag {
+      display: inline-block;
+      margin-top: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 2em;
+      font-size: 0.75rem;
+      background-color: #388bfd1a;
+      color: #58a6ff;
+      border: 1px solid #388bfd33;
+    }
+
+    /* Links */
+    .links-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .links-list li a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 1rem;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      color: #c9d1d9;
+      background-color: #161b22;
+      transition: background-color 0.2s;
+    }
+
+    .links-list li a:hover {
+      background-color: #21262d;
+      text-decoration: none;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.8rem;
+      color: #484f58;
+      border-top: 1px solid #21262d;
     }
   </style>
 </head>
 <body>
-  <h1><span aria-hidden="true">👋</span> Hi, I'm Riyan117</h1>
-  <p>Welcome to my GitHub Pages site. More content coming soon!</p>
-  <div class="badge">
-    <a href="https://github.com/Riyan117" target="_blank" rel="noopener noreferrer">github.com/Riyan117</a>
+
+  <!-- Hero -->
+  <section class="hero">
+    <img
+      class="avatar"
+      src="https://avatars.githubusercontent.com/u/137090298?v=4"
+      alt="Riyan117 avatar"
+    />
+    <h1>Hi, I'm Riyan117 <span aria-hidden="true">👋</span></h1>
+    <p class="username">@Riyan117</p>
+    <p>Welcome to my GitHub Pages site. I build things and push code.</p>
+    <a class="btn" href="https://github.com/Riyan117" target="_blank" rel="noopener noreferrer">
+      View GitHub Profile
+    </a>
+  </section>
+
+  <div class="container">
+
+    <!-- About -->
+    <div class="section">
+      <h2>About</h2>
+      <p style="color:#8b949e; line-height:1.7;">
+        I'm a developer who loves exploring new technologies and building projects.
+        Check out my repositories on GitHub to see what I've been working on.
+      </p>
+    </div>
+
+    <!-- Stats -->
+    <div class="section">
+      <h2>GitHub Activity</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="number">🌱</div>
+          <div class="label">Always Learning</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">🔧</div>
+          <div class="label">Building Projects</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">🤝</div>
+          <div class="label">Open to Collaborate</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="section">
+      <h2>Featured</h2>
+      <div class="project-card">
+        <h3>
+          <a href="https://github.com/Riyan117/Riyan117.github.io" target="_blank" rel="noopener noreferrer">
+            Riyan117.github.io
+          </a>
+        </h3>
+        <p>Personal GitHub Pages site — this very page you're reading now.</p>
+        <span class="project-tag">HTML</span>
+      </div>
+    </div>
+
+    <!-- Links -->
+    <div class="section">
+      <h2>Links</h2>
+      <ul class="links-list">
+        <li>
+          <a href="https://github.com/Riyan117" target="_blank" rel="noopener noreferrer">
+            <span aria-hidden="true">🐙</span> GitHub
+          </a>
+        </li>
+      </ul>
+    </div>
+
   </div>
+
+  <footer>
+    &copy; <span id="year"></span> Riyan117 &middot; Built with GitHub Pages
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
 </body>
 </html>
