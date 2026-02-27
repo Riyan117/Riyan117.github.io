@@ -3,277 +3,410 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Riyan117</title>
+  <title>Riyan117 — Portfolio</title>
+
+  <!-- Bootstrap 5 (available via GitHub Education Pack / free CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+  <!-- Font Awesome 6 (icons — available via GitHub Education Pack) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --bg-main:   #0d1117;
+      --bg-card:   #161b22;
+      --bg-nav:    #010409;
+      --border:    #30363d;
+      --border-subtle: #21262d;
+      --text:      #c9d1d9;
+      --text-muted:#8b949e;
+      --text-bright:#f0f6fc;
+      --accent:    #58a6ff;
+      --accent-bg: #388bfd1a;
+      --accent-border: #388bfd33;
+      --green:     #3fb950;
+      --purple:    #bc8cff;
     }
+
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #0d1117;
-      color: #c9d1d9;
-      min-height: 100vh;
+      background-color: var(--bg-main);
+      color: var(--text);
     }
 
-    a {
-      color: #58a6ff;
-      text-decoration: none;
+    /* ── Navbar ─────────────────────────────────── */
+    .navbar {
+      background-color: var(--bg-nav) !important;
+      border-bottom: 1px solid var(--border-subtle);
     }
+    .navbar-brand { color: var(--text-bright) !important; font-weight: 600; }
+    .nav-link { color: var(--text-muted) !important; font-size: .9rem; }
+    .nav-link:hover { color: var(--accent) !important; }
 
-    a:hover {
-      text-decoration: underline;
-    }
-
-    /* Hero */
+    /* ── Hero ────────────────────────────────────── */
     .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      padding: 6rem 1.5rem 4rem;
       text-align: center;
-      padding: 5rem 2rem 3rem;
-      border-bottom: 1px solid #21262d;
+      border-bottom: 1px solid var(--border-subtle);
+      background: radial-gradient(ellipse at 50% 0%, #0d2145 0%, var(--bg-main) 70%);
     }
-
-    .avatar {
-      width: 96px;
-      height: 96px;
+    .hero-avatar {
+      width: 110px;
+      height: 110px;
       border-radius: 50%;
-      border: 3px solid #30363d;
+      border: 3px solid var(--border);
       margin-bottom: 1.5rem;
+      box-shadow: 0 0 0 6px var(--accent-bg);
+    }
+    .hero h1 { font-size: 2.4rem; color: var(--text-bright); font-weight: 700; }
+    .hero .username { color: var(--text-muted); font-size: 1rem; margin-bottom: .8rem; }
+    .hero .tagline { color: var(--text-muted); font-size: 1.05rem; max-width: 460px; line-height: 1.7; margin: 0 auto 1.8rem; }
+    .badge-edu {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: var(--accent-bg); border: 1px solid var(--accent-border);
+      color: var(--accent); border-radius: 2em; padding: .25rem .75rem;
+      font-size: .78rem; margin-bottom: 1.5rem;
     }
 
-    .hero h1 {
-      font-size: 2.5rem;
-      color: #f0f6fc;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero .username {
-      font-size: 1rem;
-      color: #8b949e;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      color: #8b949e;
-      max-width: 480px;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.5rem 1.25rem;
-      border: 1px solid #30363d;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      color: #c9d1d9;
-      background-color: #21262d;
-      transition: background-color 0.2s;
-    }
-
-    .btn:hover {
-      background-color: #30363d;
+    /* ── Buttons ─────────────────────────────────── */
+    .btn-gh {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .5rem 1.25rem; border: 1px solid var(--border);
+      border-radius: 6px; font-size: .9rem; color: var(--text);
+      background-color: #21262d; transition: background-color .2s;
       text-decoration: none;
     }
+    .btn-gh:hover { background-color: var(--border); color: var(--text-bright); text-decoration: none; }
+    .btn-gh-primary {
+      background-color: #238636; border-color: #2ea043; color: #fff;
+    }
+    .btn-gh-primary:hover { background-color: #2ea043; color: #fff; }
 
-    /* Sections */
-    .container {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 2.5rem 1.5rem;
+    /* ── Section ─────────────────────────────────── */
+    section { padding: 4rem 0; }
+    .section-title {
+      font-size: 1.2rem; font-weight: 600; color: var(--text-bright);
+      padding-bottom: .5rem; border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 1.75rem;
     }
 
-    .section {
-      margin-bottom: 3rem;
-    }
+    /* ── About ───────────────────────────────────── */
+    .about-text { color: var(--text-muted); line-height: 1.8; }
 
-    .section h2 {
-      font-size: 1.25rem;
-      color: #f0f6fc;
-      margin-bottom: 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid #21262d;
+    /* ── Skills ──────────────────────────────────── */
+    .skill-badge {
+      display: inline-flex; align-items: center; gap: .35rem;
+      background-color: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 6px; padding: .35rem .85rem; font-size: .85rem;
+      color: var(--text); margin: .3rem;
+      transition: border-color .2s, color .2s;
     }
+    .skill-badge:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* Stats */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 1rem;
-    }
-
-    .stat-card {
-      background-color: #161b22;
-      border: 1px solid #30363d;
-      border-radius: 6px;
-      padding: 1rem 1.25rem;
-      text-align: center;
-    }
-
-    .stat-card .number {
-      font-size: 1.75rem;
-      font-weight: 600;
-      color: #f0f6fc;
-    }
-
-    .stat-card .label {
-      font-size: 0.85rem;
-      color: #8b949e;
-      margin-top: 0.25rem;
-    }
-
-    /* Projects */
+    /* ── Project cards ───────────────────────────── */
     .project-card {
-      background-color: #161b22;
-      border: 1px solid #30363d;
-      border-radius: 6px;
-      padding: 1.25rem;
-      margin-bottom: 1rem;
+      background-color: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 1.4rem;
+      transition: border-color .2s, transform .2s;
+      height: 100%;
     }
-
-    .project-card h3 {
-      font-size: 1rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .project-card p {
-      font-size: 0.875rem;
-      color: #8b949e;
-      line-height: 1.5;
-    }
-
+    .project-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .project-card h3 { font-size: 1rem; margin-bottom: .4rem; }
+    .project-card h3 a { color: var(--accent); text-decoration: none; }
+    .project-card h3 a:hover { text-decoration: underline; }
+    .project-card p { font-size: .875rem; color: var(--text-muted); line-height: 1.5; flex-grow: 1; }
     .project-tag {
-      display: inline-block;
-      margin-top: 0.75rem;
-      padding: 0.2rem 0.6rem;
-      border-radius: 2em;
-      font-size: 0.75rem;
-      background-color: #388bfd1a;
-      color: #58a6ff;
-      border: 1px solid #388bfd33;
+      display: inline-block; margin: .65rem .2rem 0 0;
+      padding: .2rem .6rem; border-radius: 2em; font-size: .72rem;
+      background-color: var(--accent-bg); color: var(--accent); border: 1px solid var(--accent-border);
     }
-
-    /* Links */
-    .links-list {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
+    .project-lang-dot {
+      display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: .4rem;
     }
+    .project-meta { font-size: .78rem; color: var(--text-muted); margin-top: .75rem; }
 
-    .links-list li a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.45rem 1rem;
-      border: 1px solid #30363d;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      color: #c9d1d9;
-      background-color: #161b22;
-      transition: background-color 0.2s;
+    /* ── Education Pack tools ────────────────────── */
+    .tool-card {
+      background-color: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 1.25rem 1.4rem;
+      display: flex; align-items: flex-start; gap: 1rem;
+      transition: border-color .2s;
     }
-
-    .links-list li a:hover {
-      background-color: #21262d;
-      text-decoration: none;
+    .tool-card:hover { border-color: var(--purple); }
+    .tool-icon {
+      font-size: 1.5rem; min-width: 2rem; text-align: center; margin-top: .15rem;
     }
+    .tool-card h4 { font-size: .95rem; color: var(--text-bright); margin-bottom: .2rem; }
+    .tool-card p { font-size: .82rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
 
-    /* Footer */
+    /* ── Contact / Links ─────────────────────────── */
+    .contact-link {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .5rem 1.1rem; border: 1px solid var(--border);
+      border-radius: 6px; font-size: .9rem; color: var(--text);
+      background-color: var(--bg-card); transition: background-color .2s, border-color .2s;
+      text-decoration: none; margin: .3rem;
+    }
+    .contact-link:hover { background-color: #21262d; border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+    /* ── Footer ──────────────────────────────────── */
     footer {
-      text-align: center;
-      padding: 1.5rem;
-      font-size: 0.8rem;
-      color: #484f58;
-      border-top: 1px solid #21262d;
+      text-align: center; padding: 1.75rem 1rem;
+      font-size: .8rem; color: #484f58;
+      border-top: 1px solid var(--border-subtle);
     }
+    footer a { color: #484f58; }
+    footer a:hover { color: var(--text-muted); }
   </style>
 </head>
 <body>
 
-  <!-- Hero -->
-  <section class="hero">
+  <!-- ── Navbar ──────────────────────────────────────────── -->
+  <nav class="navbar navbar-expand-md sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <i class="fa-brands fa-github me-2"></i>Riyan117
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars" style="color:var(--text-muted)"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto gap-1">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#edu-pack">Edu Pack</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Hero ────────────────────────────────────────────── -->
+  <div class="hero">
     <img
-      class="avatar"
+      class="hero-avatar"
       src="https://avatars.githubusercontent.com/u/137090298?v=4"
       alt="Riyan117 avatar"
     />
+    <div class="badge-edu">
+      <i class="fa-solid fa-graduation-cap"></i> GitHub Education Student
+    </div>
     <h1>Hi, I'm Riyan117 <span aria-hidden="true">👋</span></h1>
     <p class="username">@Riyan117</p>
-    <p>Welcome to my GitHub Pages site. I build things and push code.</p>
-    <a class="btn" href="https://github.com/Riyan117" target="_blank" rel="noopener noreferrer">
-      View GitHub Profile
-    </a>
-  </section>
-
-  <div class="container">
-
-    <!-- About -->
-    <div class="section">
-      <h2>About</h2>
-      <p style="color:#8b949e; line-height:1.7;">
-        I'm a developer who loves exploring new technologies and building projects.
-        Check out my repositories on GitHub to see what I've been working on.
-      </p>
+    <p class="tagline">
+      A developer who loves exploring new technologies, building projects, and learning every day.
+    </p>
+    <div class="d-flex flex-wrap justify-content-center gap-2">
+      <a class="btn-gh btn-gh-primary" href="#projects">
+        <i class="fa-solid fa-folder-open"></i> View Projects
+      </a>
+      <a class="btn-gh" href="https://github.com/Riyan117" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-github"></i> GitHub Profile
+      </a>
     </div>
-
-    <!-- Stats -->
-    <div class="section">
-      <h2>GitHub Activity</h2>
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="number">🌱</div>
-          <div class="label">Always Learning</div>
-        </div>
-        <div class="stat-card">
-          <div class="number">🔧</div>
-          <div class="label">Building Projects</div>
-        </div>
-        <div class="stat-card">
-          <div class="number">🤝</div>
-          <div class="label">Open to Collaborate</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Projects -->
-    <div class="section">
-      <h2>Featured</h2>
-      <div class="project-card">
-        <h3>
-          <a href="https://github.com/Riyan117/Riyan117.github.io" target="_blank" rel="noopener noreferrer">
-            Riyan117.github.io
-          </a>
-        </h3>
-        <p>Personal GitHub Pages site — this very page you're reading now.</p>
-        <span class="project-tag">HTML</span>
-      </div>
-    </div>
-
-    <!-- Links -->
-    <div class="section">
-      <h2>Links</h2>
-      <ul class="links-list">
-        <li>
-          <a href="https://github.com/Riyan117" target="_blank" rel="noopener noreferrer">
-            <span aria-hidden="true">🐙</span> GitHub
-          </a>
-        </li>
-      </ul>
-    </div>
-
   </div>
 
+  <div class="container" style="max-width:860px;">
+
+    <!-- ── About ──────────────────────────────────────────── -->
+    <section id="about">
+      <h2 class="section-title"><i class="fa-solid fa-user me-2 text-muted"></i>About Me</h2>
+      <div class="row align-items-center g-4">
+        <div class="col-md-8">
+          <p class="about-text">
+            I'm a student developer passionate about web development and open-source collaboration.
+            I use the <strong style="color:var(--text)">GitHub Education Pack</strong> to access
+            professional-grade tools — helping me learn faster and build better projects.
+          </p>
+          <p class="about-text mt-3">
+            Currently focused on front-end development and continuously expanding my skill set.
+            Feel free to browse my work below or connect with me on GitHub!
+          </p>
+        </div>
+        <div class="col-md-4">
+          <div class="p-3 rounded-3" style="background:var(--bg-card);border:1px solid var(--border-subtle);">
+            <div class="d-flex align-items-center gap-2 mb-2" style="font-size:.85rem;color:var(--text-muted);">
+              <i class="fa-solid fa-location-dot"></i> Indonesia
+            </div>
+            <div class="d-flex align-items-center gap-2 mb-2" style="font-size:.85rem;color:var(--text-muted);">
+              <i class="fa-brands fa-github"></i>
+              <a href="https://github.com/Riyan117" target="_blank" rel="noopener noreferrer">github.com/Riyan117</a>
+            </div>
+            <div class="d-flex align-items-center gap-2" style="font-size:.85rem;color:var(--text-muted);">
+              <i class="fa-solid fa-circle" style="color:var(--green);font-size:.55rem;"></i> Open to opportunities
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Skills ─────────────────────────────────────────── -->
+    <section id="skills">
+      <h2 class="section-title"><i class="fa-solid fa-code me-2 text-muted"></i>Skills &amp; Technologies</h2>
+      <div>
+        <span class="skill-badge"><i class="fa-brands fa-html5" style="color:#e34c26;"></i> HTML5</span>
+        <span class="skill-badge"><i class="fa-brands fa-css3-alt" style="color:#264de4;"></i> CSS3</span>
+        <span class="skill-badge"><i class="fa-brands fa-js" style="color:#f0db4f;"></i> JavaScript</span>
+        <span class="skill-badge"><i class="fa-brands fa-bootstrap" style="color:#7952b3;"></i> Bootstrap</span>
+        <span class="skill-badge"><i class="fa-brands fa-git-alt" style="color:#f05032;"></i> Git</span>
+        <span class="skill-badge"><i class="fa-brands fa-github"></i> GitHub</span>
+        <span class="skill-badge"><i class="fa-brands fa-node-js" style="color:#339933;"></i> Node.js</span>
+        <span class="skill-badge"><i class="fa-solid fa-terminal"></i> CLI</span>
+        <span class="skill-badge"><i class="fa-solid fa-globe"></i> GitHub Pages</span>
+      </div>
+    </section>
+
+    <!-- ── Projects ───────────────────────────────────────── -->
+    <section id="projects">
+      <h2 class="section-title"><i class="fa-solid fa-folder-open me-2 text-muted"></i>Featured Projects</h2>
+      <div class="row g-3">
+
+        <div class="col-md-6">
+          <div class="project-card d-flex flex-column">
+            <h3>
+              <i class="fa-brands fa-github me-1" style="font-size:.85rem;color:var(--text-muted);"></i>
+              <a href="https://github.com/Riyan117/Riyan117.github.io" target="_blank" rel="noopener noreferrer">
+                Riyan117.github.io
+              </a>
+            </h3>
+            <p>Personal portfolio site — built with Bootstrap 5 and hosted on GitHub Pages (part of the GitHub Education Pack).</p>
+            <div>
+              <span class="project-tag">HTML</span>
+              <span class="project-tag">CSS</span>
+              <span class="project-tag">Bootstrap</span>
+            </div>
+            <div class="project-meta">
+              <span class="project-lang-dot" style="background:#e34c26;"></span>HTML
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="project-card d-flex flex-column" style="border-style:dashed;">
+            <h3 style="color:var(--text-muted);">
+              <i class="fa-solid fa-plus me-1" style="font-size:.85rem;"></i>
+              More coming soon…
+            </h3>
+            <p>I'm actively building new projects. Check back later or visit my GitHub profile for the latest updates.</p>
+            <div class="mt-auto pt-3">
+              <a class="btn-gh" href="https://github.com/Riyan117" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-github"></i> View all repos
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── GitHub Education Pack ──────────────────────────── -->
+    <section id="edu-pack">
+      <h2 class="section-title">
+        <i class="fa-solid fa-graduation-cap me-2 text-muted"></i>GitHub Education Pack — Tools I Use
+      </h2>
+      <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:1.5rem;">
+        As a verified student, I have access to the
+        <a href="https://education.github.com/pack" target="_blank" rel="noopener noreferrer">GitHub Student Developer Pack</a>
+        — a collection of free professional tools that help me build better projects.
+      </p>
+      <div class="row g-3">
+
+        <div class="col-md-6">
+          <div class="tool-card">
+            <div class="tool-icon"><i class="fa-brands fa-github" style="color:var(--text-bright);"></i></div>
+            <div>
+              <h4>GitHub Pages</h4>
+              <p>Free static site hosting — powers this very portfolio. No server required.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="tool-card">
+            <div class="tool-icon"><i class="fa-solid fa-code-branch" style="color:var(--green);"></i></div>
+            <div>
+              <h4>GitHub Copilot</h4>
+              <p>AI pair programmer that helps me write better code faster, for free while I'm a student.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="tool-card">
+            <div class="tool-icon"><i class="fa-solid fa-cloud" style="color:#0080ff;"></i></div>
+            <div>
+              <h4>DigitalOcean</h4>
+              <p>$200 in cloud credits to deploy apps, databases, and more.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="tool-card">
+            <div class="tool-icon"><i class="fa-solid fa-globe" style="color:#ff6f00;"></i></div>
+            <div>
+              <h4>Name.com / Namecheap</h4>
+              <p>Free custom domain registration so my portfolio can have a professional URL.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="tool-card">
+            <div class="tool-icon"><i class="fa-solid fa-vials" style="color:var(--purple);"></i></div>
+            <div>
+              <h4>JetBrains IDE Pack</h4>
+              <p>Professional IDEs (IntelliJ, WebStorm, etc.) free for students.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="tool-card">
+            <div class="tool-icon"><i class="fa-solid fa-chart-line" style="color:#13aa52;"></i></div>
+            <div>
+              <h4>MongoDB Atlas</h4>
+              <p>Free cloud database credits — great for full-stack student projects.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Contact ─────────────────────────────────────────── -->
+    <section id="contact">
+      <h2 class="section-title"><i class="fa-solid fa-paper-plane me-2 text-muted"></i>Get In Touch</h2>
+      <p style="color:var(--text-muted);line-height:1.7;margin-bottom:1.25rem;">
+        Want to collaborate, have a question, or just want to say hi?
+        Feel free to reach out through any of the links below.
+      </p>
+      <div>
+        <a class="contact-link" href="https://github.com/Riyan117" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-github"></i> GitHub
+        </a>
+      </div>
+    </section>
+
+  </div><!-- /container -->
+
+  <!-- ── Footer ──────────────────────────────────────────── -->
   <footer>
-    &copy; <span id="year"></span> Riyan117 &middot; Built with GitHub Pages
+    <div class="mb-1">
+      <a href="https://github.com/Riyan117" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <i class="fa-brands fa-github fa-lg me-3"></i>
+      </a>
+    </div>
+    &copy; <span id="year"></span> Riyan117 &middot;
+    Built with <a href="https://pages.github.com" target="_blank" rel="noopener noreferrer">GitHub Pages</a>
+    &amp; <a href="https://education.github.com/pack" target="_blank" rel="noopener noreferrer">GitHub Education Pack</a>
   </footer>
 
+  <!-- Bootstrap JS bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc4s9bIOgUxi8T/jzmCKPfHnbfNMNOuZ4H3OcHyHxPEB" crossorigin="anonymous"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
